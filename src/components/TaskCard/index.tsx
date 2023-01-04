@@ -1,9 +1,10 @@
 import React from 'react';
 
-function TaskCard() {
+function TaskCard({ title, description }: TSTask) {
   return (
     <div>
-      <p>TaskCard</p>
+      <p>{title}</p>
+      <p>{description}</p>
     </div>
   );
 }

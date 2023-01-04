@@ -1,5 +1,6 @@
 const defaultTasks: TSTask[] = [
   {
+    id: 1,
     title: 'tarea 1',
     description: 'adsfasd fasd fas fasd f',
     portraitImage:
@@ -11,6 +12,7 @@ const defaultTasks: TSTask[] = [
     state: 'open',
   },
   {
+    id: 2,
     title: 'tarea 2',
     description: 'adsfasd fasd fas fasd f',
     portraitImage:
@@ -22,7 +24,8 @@ const defaultTasks: TSTask[] = [
     state: 'open',
   },
   {
-    title: 'tarea 1',
+    id: 3,
+    title: 'tarea 3',
     description: 'adsfasd fasd fas fasd f',
     portraitImage:
       'https://images.pexels.com/photos/11987710/pexels-photo-11987710.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',

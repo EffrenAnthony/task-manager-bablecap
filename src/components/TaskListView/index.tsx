@@ -1,9 +1,33 @@
 import React from 'react';
+import { TaskCard } from '..';
 
-function TaskListView() {
+type TaskListViewProps = {
+  taskList: TSTask[];
+};
+
+function TaskListView({ taskList }: TaskListViewProps) {
   return (
     <div>
-      <p>TaskListView</p>
+      {taskList.length > 0 ? (
+        <>
+          {taskList.map((item) => {
+            return (
+              <TaskCard
+                key={item.id}
+                // id={item.id}
+                // title={item.title}
+                // description={item.description}
+                // portraitImage={item.portraitImage}
+                // images={item.images}
+                // state={item.state}
+                {...item}
+              />
+            );
+          })}
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

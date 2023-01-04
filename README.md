@@ -34,3 +34,8 @@ npx install-peerdeps --dev eslint-config-airbnb
 ```bash
 npm i -D eslint-config-airbnb-typescript 
 ```
+
+```bash
+npm i -D prettier eslint-config-prettier eslint-plugin-prettier
+```
+
