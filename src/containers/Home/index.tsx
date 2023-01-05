@@ -38,9 +38,7 @@ function HomeComponent() {
         <h1>Contenido</h1>
         <h1>Contenido</h1>
         <h1>Contenido</h1>
-        <h1>Contenido</h1>
-        <h1>Contenido</h1>
-        <h1>Contenido</h1>
+        
       </ModalComponent>
     </div>
   );
