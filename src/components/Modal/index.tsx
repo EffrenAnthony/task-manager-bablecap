@@ -10,7 +10,7 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 interface ModalComponentProps {
   modalIsOpen: boolean;

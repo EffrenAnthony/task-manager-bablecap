@@ -39,3 +39,13 @@ npm i -D eslint-config-airbnb-typescript
 npm i -D prettier eslint-config-prettier eslint-plugin-prettier
 ```
 
+```bash
+npm i -D vitest  
+```
+
+```bash
+npm i -D @testing-library/react @testing-library/jest-dom
+```
+
+
+
