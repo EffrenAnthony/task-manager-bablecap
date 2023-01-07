@@ -10,10 +10,10 @@ function TaskListView({ taskList }: TaskListViewProps) {
     <div>
       {taskList.length > 0 ? (
         <>
-          {taskList.map((item) => {
+          {taskList.map((item, key) => {
             return (
               <TaskCard
-                key={item.id}
+                key={key}
                 // id={item.id}
                 // title={item.title}
                 // description={item.description}

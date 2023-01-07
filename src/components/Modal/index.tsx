@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactModal from 'react-modal';
 import Modal from 'react-modal';
 const customStyles = {
   content: {
@@ -10,8 +11,9 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-// Modal.setAppElement('#root');
 
+/* istanbul ignore next */
+// ReactModal.setAppElement('#app');
 interface ModalComponentProps {
   modalIsOpen: boolean;
   closeModal: () => void;

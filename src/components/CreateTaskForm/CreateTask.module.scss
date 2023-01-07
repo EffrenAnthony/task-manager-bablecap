@@ -1,0 +1,10 @@
+.formContainer{
+  padding: 50px;
+  min-width: 300px;
+}
+
+.taskForm{
+  display: grid;
+  grid-template-columns: 1 1fr;
+  gap: 1.5em;
+}

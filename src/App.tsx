@@ -3,7 +3,7 @@ import { Home } from './containers';
 
 function App() {
   return (
-    <div>
+    <div id='app'>
       <Home />
     </div>
   );
