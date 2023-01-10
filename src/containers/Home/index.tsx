@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import defaultTasks from '../../mocks/tasks';
 import { TaskListView, ModalComponent, CreateTaskForm } from '../../components';
-import useLocalStorage from '../../hooks/useLocalstorage';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 
 function HomeComponent() {

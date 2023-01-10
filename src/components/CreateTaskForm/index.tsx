@@ -4,7 +4,7 @@ const CreateTaskForm = ({item, saveItem, closeModal}:
   {item:any, saveItem:any, closeModal:()=> void}) => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [portraiImage, setPortraitImage] = useState<string>('');
+  const [portraitImage, setPortraitImage] = useState<string>('');
   const [images, setImages] = useState<string>('');
 
   const handleImagesInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -16,7 +16,7 @@ const CreateTaskForm = ({item, saveItem, closeModal}:
       id: item.length > 0 ? item[item.length - 1].id + 1 : 0,
       title,
       description,
-      portraiImage,
+      portraitImage,
       images,
     }])
     closeModal()
@@ -43,7 +43,7 @@ const CreateTaskForm = ({item, saveItem, closeModal}:
           placeholder="Description"
         />
         <input
-          value={portraiImage}
+          value={portraitImage}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setPortraitImage(e.target.value);
           }}

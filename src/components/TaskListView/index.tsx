@@ -1,13 +1,13 @@
 import React from 'react';
 import { TaskCard } from '..';
-
+import stile from './TaskList.module.scss'
 type TaskListViewProps = {
   taskList: TSTask[];
 };
 
 function TaskListView({ taskList }: TaskListViewProps) {
   return (
-    <div>
+    <div className={stile.taskListContainer}>
       {taskList.length > 0 ? (
         <>
           {taskList.map((item, key) => {
