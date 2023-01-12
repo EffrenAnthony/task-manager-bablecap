@@ -1,8 +1,19 @@
-
-.taskImageContainer{
+.taskCardContainer{
+  box-shadow: 5px 5px 20px black;
+}
+  
+.taskImageContainer{  
   width: 300px;
-  height: 100px;
+  height: 200px;
   overflow: hidden;
+}
+.taskTitleContainer{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  color: white;
+  background-color: rgb(25, 25, 25);
+  font-size: 18px;
 }
 .taskImage{
   width: 100%;
