@@ -1,19 +1,39 @@
 import React from 'react';
-import { TaskCard } from '..';
-import stile from './TaskList.module.scss'
+import { DrawerTask, TaskCard } from '..';
+import stile from './TaskList.module.scss';
+import { useTaskContext } from '../../context/taskContext';
 type TaskListViewProps = {
   taskList: TSTask[];
+  loading: boolean;
+  error: string;
 };
+function TaskListView({ taskList, loading, error }: TaskListViewProps) {
+  const { toggleDrawer, updateCurrentTask, updateDrawerChildren } = useTaskContext();
 
-function TaskListView({ taskList }: TaskListViewProps) {
+  const setTaskOnDrawer = (task:TSTask) => {
+    toggleDrawer()
+    updateCurrentTask(task)
+    updateDrawerChildren({
+      children: <DrawerTask {...task}/>
+    })
+  }
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error.trim() !== '') {
+    return <p>{error}</p>;
+  }
   return (
     <div className={stile.taskListContainer}>
-      {taskList.length > 0 ? (
-        <>
-          {taskList.map((item, key) => {
-            return (
+      {taskList.map((item, key) => {
+        return (
+          <div
+            key={key}
+            onClick={() =>setTaskOnDrawer(item)}
+            
+          >
               <TaskCard
-                key={key}
                 // id={item.id}
                 // title={item.title}
                 // description={item.description}
@@ -22,12 +42,9 @@ function TaskListView({ taskList }: TaskListViewProps) {
                 // state={item.state}
                 {...item}
               />
-            );
-          })}
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+          </div>
+        );
+      })}
     </div>
   );
 }

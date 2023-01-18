@@ -23,7 +23,7 @@ function HomeComponent() {
   // ! ESTE TIENE QUE ESTAR A LA ALTURA DEL COMPONENTE
   // ! QUE RENDERIZA LOS TASK, SINO NO VA A ACTUALIZARLOS
   // ! PORQUE EL RENDER SERA SOLO DEL COMPONENTE DONDE SE USÓ EL HOOK
-  const { item, saveItem } = useLocalStorage('taskList', []);
+  const { item, saveItem, loading, error } = useLocalStorage('taskList', []);
   // const [number, setNumber] = useState<number>(0);
   // const [show, setShow] = useState<boolean>(false);
   // console.log('render');
@@ -79,7 +79,11 @@ function HomeComponent() {
       </div>
       {pokemon.name}
       {mostrar && <Fantasma />} */}
-      <TaskListView taskList={item! as TSTask[]} />
+      <TaskListView
+      taskList={item! as TSTask[]}
+      loading={loading}
+      error={error}
+      />
       <div />
       <ModalComponent
         modalIsOpen={openModal}

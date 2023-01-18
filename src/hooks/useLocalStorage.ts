@@ -4,7 +4,7 @@ function useLocalStorage(itemName: string, initialValue: any) {
   const [item, setItem] = useState(initialValue);
   // const [sincronizeItem, setSincronizeItem] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | undefined>();
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
     setLoading(true);
@@ -24,6 +24,7 @@ function useLocalStorage(itemName: string, initialValue: any) {
 
   const saveItem = (newItem: any) => {
     window.localStorage.setItem(itemName, JSON.stringify(newItem));
+    setError('');
     setItem(newItem);
   };
 
