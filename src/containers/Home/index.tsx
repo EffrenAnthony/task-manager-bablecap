@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import defaultTasks from '../../mocks/tasks';
 import { TaskListView, ModalComponent, CreateTaskForm } from '../../components';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { useTaskContext } from '../../context/taskContext';
 
 // function Fantasma() {
 //   useEffect(() => {
@@ -18,12 +19,13 @@ function HomeComponent() {
   // const [pokeId, setPokeId] = useState<any>(1);
   // const [mostrar, setMostrar] = useState<any>(false);
   // const [taskList, setTaskList] = useState<TSTask[]>([]);
-  const [openModal, setOpenModal] = useState<boolean>(false);
+
   // ! YA QUE USAMOS UN USE EFFECT EN USELOCALSTORAGE,
   // ! ESTE TIENE QUE ESTAR A LA ALTURA DEL COMPONENTE
   // ! QUE RENDERIZA LOS TASK, SINO NO VA A ACTUALIZARLOS
   // ! PORQUE EL RENDER SERA SOLO DEL COMPONENTE DONDE SE USÓ EL HOOK
   const { item, saveItem, loading, error } = useLocalStorage('taskList', []);
+  const { openModal, handleOpenModal } = useTaskContext();
   // const [number, setNumber] = useState<number>(0);
   // const [show, setShow] = useState<boolean>(false);
   // console.log('render');
@@ -46,9 +48,6 @@ function HomeComponent() {
   //   pokeId,
   // ]);
 
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
-  };
   return (
     <div>
       <h1>Task Manager</h1>
@@ -80,9 +79,10 @@ function HomeComponent() {
       {pokemon.name}
       {mostrar && <Fantasma />} */}
       <TaskListView
-      taskList={item! as TSTask[]}
-      loading={loading}
-      error={error}
+        taskList={item! as TSTask[]}
+        loading={loading}
+        error={error}
+        saveItem={saveItem}
       />
       <div />
       <ModalComponent
