@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ToggleDrawerAction, useTaskContext } from "../../context/taskContext";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
@@ -9,6 +10,7 @@ type DrawerTaskProps = TSTask & ExtraProps;
 
 const DrawerTask = ({ title, description, saveItem, id }: DrawerTaskProps) => {
   const {toggleDrawer, taskList, handleOpenModal, updateCurrentTask} = useTaskContext()
+  const navigate = useNavigate()
   const deleteCAC = () => {
     const newTaskList:TSTask[] = taskList.filter((task:TSTask) => task.id !== id)
     saveItem(newTaskList)
@@ -18,6 +20,10 @@ const DrawerTask = ({ title, description, saveItem, id }: DrawerTaskProps) => {
 
   const openUpdateModal = () => {
     handleOpenModal()
+    toggleDrawer(ToggleDrawerAction.UPDATE_TASK)
+  }
+  const goToTaskDescription = () => {
+    navigate(`/singleTask/${id}`)
     toggleDrawer(ToggleDrawerAction.UPDATE_TASK)
   }
   return (
@@ -30,6 +36,9 @@ const DrawerTask = ({ title, description, saveItem, id }: DrawerTaskProps) => {
       <button 
       onClick={openUpdateModal}
       style={{ backgroundColor: 'green' }}>Update Task</button>
+      <button 
+      onClick={goToTaskDescription }
+      style={{ backgroundColor: 'lightblue' }}>Open Task Description</button>
     </div>
   );
 };
